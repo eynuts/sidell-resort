@@ -1,0 +1,862 @@
+/* Booking Page Styles - Sidell Beach Resort */
+
+#booking-page-root {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.booking-page-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===========================
+   HERO SECTION
+   =========================== */
+.booking-hero {
+  position: relative;
+  padding: 8rem 0 4rem;
+  background: linear-gradient(135deg, #0077b6 0%, #005a8c 100%);
+  text-align: center;
+}
+
+.booking-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+}
+
+.booking-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.booking-hero p {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+/* ===========================
+   BOOKING CONTAINER
+   =========================== */
+.booking-container {
+  max-width: 80rem;
+  margin: -2rem auto 4rem;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ===========================
+   BOOKING FORM
+   =========================== */
+.booking-form {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.form-section {
+  margin-bottom: 3rem;
+}
+
+.form-section:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.form-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 2px solid #f3f4f6;
+  padding-bottom: 0.75rem;
+}
+
+.form-section h2 i {
+  color: #0077b6;
+  font-size: 1.25rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #0077b6;
+  box-shadow: 0 0 0 4px rgba(0, 119, 182, 0.1);
+}
+
+/* Date Input Styling */
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-with-icon i {
+  position: absolute;
+  left: 14px;
+  color: #0077b6;
+  font-size: 1.1rem;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.datepicker-input {
+  width: 100%;
+  padding: 12px 16px 12px 42px !important;
+  cursor: pointer;
+  font-family: inherit;
+  background-color: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.datepicker-input:focus {
+  outline: none;
+  border-color: #0077b6;
+  box-shadow: 0 0 0 4px rgba(0, 119, 182, 0.1);
+}
+
+/* React Datepicker Custom Theme */
+.react-datepicker {
+  font-family: 'Poppins', sans-serif !important;
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12) !important;
+  overflow: hidden;
+  background: white !important;
+}
+
+.react-datepicker__header {
+  background-color: white !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+  padding-top: 15px !important;
+}
+
+.react-datepicker__header--has-navigation-options {
+  padding-top: 10px !important;
+}
+
+.react-datepicker__current-month {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: #1f2937 !important;
+  margin-bottom: 10px !important;
+}
+
+.react-datepicker__day-names {
+  margin-bottom: -8px !important;
+}
+
+.react-datepicker__day-name {
+  color: #9ca3af !important;
+  font-weight: 500 !important;
+  font-size: 0.8rem !important;
+  width: 2.5rem !important;
+}
+
+.react-datepicker__month {
+  margin: 10px !important;
+  min-height: 240px !important; /* Force consistent height */
+}
+
+.react-datepicker__day {
+  color: #4b5563 !important;
+  font-size: 0.9rem !important;
+  width: 2.5rem !important;
+  line-height: 2.5rem !important;
+  margin: 0.1rem !important;
+  border-radius: 50% !important;
+  transition: all 0.2s ease !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: transparent !important;
+  color: #0077b6 !important;
+  font-weight: 700 !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--range-start,
+.react-datepicker__day--range-end {
+  background-color: #0077b6 !important;
+  color: white !important;
+  font-weight: 700 !important;
+}
+
+.react-datepicker__day--in-range {
+  background-color: #e0f2fe !important;
+  color: #0077b6 !important;
+  border-radius: 0 !important;
+}
+
+.react-datepicker__day--range-start {
+  border-radius: 50% 0 0 50% !important;
+}
+
+.react-datepicker__day--range-end {
+  border-radius: 0 50% 50% 0 !important;
+}
+
+.react-datepicker__day--in-selecting-range {
+  background-color: #f0f9ff !important;
+  color: #0077b6 !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: #f3f4f6 !important;
+  color: #0077b6 !important;
+}
+
+.react-datepicker__day--disabled {
+  color: #d1d5db !important;
+  background: transparent !important;
+}
+
+.react-datepicker__day--outside-month {
+  color: #e5e7eb !important;
+}
+
+.react-datepicker__navigation {
+  top: 18px !important;
+}
+
+.react-datepicker__navigation--previous {
+  left: 10px !important;
+}
+
+.react-datepicker__navigation--next {
+  right: 10px !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #9ca3af !important;
+  border-width: 2px !important;
+}
+
+.react-datepicker__navigation:hover *::before {
+  border-color: #0077b6 !important;
+}
+
+/* Dropdowns Styling */
+.react-datepicker__month-read-view--down-arrow,
+.react-datepicker__year-read-view--down-arrow {
+  border-color: #9ca3af !important;
+}
+
+.react-datepicker__month-select,
+.react-datepicker__year-select {
+  padding: 4px !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 6px !important;
+  font-size: 0.85rem !important;
+  color: #4b5563 !important;
+  outline: none !important;
+}
+
+.react-datepicker__month-select:focus,
+.react-datepicker__year-select:focus {
+  border-color: #0077b6 !important;
+}
+
+.date-group {
+  position: relative;
+}
+
+.date-group label {
+  margin-bottom: 0.5rem;
+}
+
+.input-with-icon:hover input {
+  border-color: #0077b6;
+}
+
+.input-with-icon:focus-within i {
+  color: #005a8c;
+}
+
+/* Mobile adjustments for date row */
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+  
+  .react-datepicker {
+    font-size: 0.8rem !important;
+  }
+  
+  .react-datepicker__day {
+    width: 2rem !important;
+    line-height: 2rem !important;
+    margin: 0.1rem !important;
+  }
+}
+
+.submit-booking-btn {
+  width: 100%;
+  padding: 1.25rem;
+  background: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 119, 182, 0.2);
+}
+
+.submit-booking-btn:hover {
+  background: #005a8c;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0, 119, 182, 0.3);
+}
+
+.payment-note {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* ===========================
+   BOOKING SUMMARY
+   =========================== */
+.summary-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.summary-image {
+  height: 180px;
+}
+
+.summary-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.summary-content {
+  padding: 1.5rem;
+}
+
+.room-type {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #0077b6;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.summary-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.change-room-link {
+  background: none;
+  border: none;
+  color: #0077b6;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+  border-bottom: 1.5px solid transparent;
+}
+
+.change-room-link:hover {
+  color: #005a8c;
+  border-bottom-color: #005a8c;
+}
+
+/* ===========================
+   ROOM SELECTOR MODAL
+   =========================== */
+.room-selector-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.room-selector-content {
+  background: white;
+  border-radius: 25px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 2.5rem;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modalAppear 0.3s ease-out;
+}
+
+/* Custom Scrollbar for Room Selector */
+.room-selector-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.room-selector-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.room-selector-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #0077b6 0%, #005a8c 100%);
+  border-radius: 4px;
+}
+
+.room-selector-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #005a8c 0%, #004a75 100%);
+}
+
+/* Firefox scrollbar */
+.room-selector-content {
+  scrollbar-width: thin;
+  scrollbar-color: #0077b6 #f1f1f1;
+}
+
+.selector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.selector-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  color: #1f2937;
+}
+
+.close-selector {
+  background: #f3f4f6;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+  transition: all 0.3s ease;
+}
+
+.close-selector:hover {
+  background: #0077b6;
+  color: white;
+  transform: rotate(90deg);
+}
+
+.rooms-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.room-select-card {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.25rem;
+  border: 2px solid #f3f4f6;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.room-select-card:hover {
+  border-color: #0077b6;
+  background: #f0f9ff;
+}
+
+.room-select-card.active {
+  border-color: #0077b6;
+  background: #f0f9ff;
+  box-shadow: 0 4px 15px rgba(0, 119, 182, 0.1);
+}
+
+.room-select-image {
+  width: 120px;
+  height: 90px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.room-select-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.room-select-info {
+  flex: 1;
+}
+
+.room-select-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.room-select-header .type {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #0077b6;
+  letter-spacing: 0.05em;
+}
+
+.room-select-header .price {
+  font-weight: 700;
+  color: #f97316;
+  font-size: 1rem;
+}
+
+.room-select-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.room-select-info .capacity {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.room-select-info .capacity i {
+  color: #0077b6;
+  margin-right: 0.25rem;
+}
+
+.current-badge {
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background: #0077b6;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .room-selector-content {
+    padding: 1.5rem;
+  }
+  
+  .room-select-card {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .room-select-image {
+    width: 100%;
+    height: 140px;
+  }
+}
+
+/* ===========================
+   EMPTY SUMMARY PLACEHOLDER
+   =========================== */
+.summary-card.empty {
+  padding: 3rem 2rem;
+  background: white;
+  border: 2px dashed #e5e7eb;
+}
+
+.empty-summary-placeholder {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.placeholder-icon {
+  width: 64px;
+  height: 64px;
+  background: #f0f9ff;
+  color: #0077b6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.empty-summary-placeholder h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin: 0;
+}
+
+.empty-summary-placeholder p {
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.choose-room-btn {
+  margin-top: 1rem;
+  padding: 12px 24px;
+  background: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
+}
+
+.choose-room-btn:hover {
+  background: #005a8c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 119, 182, 0.3);
+}
+
+.summary-details {
+  border-top: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f3f4f6;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.detail-item .label {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.detail-item .value {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.detail-item.total {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed #e5e7eb;
+}
+
+.detail-item.total .label {
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.detail-item.total .value {
+  color: #f97316;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.summary-features h4 {
+  font-size: 0.9rem;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+}
+
+.summary-features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.summary-features li {
+  font-size: 0.85rem;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.summary-features li i {
+  color: #10b981;
+  font-size: 0.75rem;
+}
+
+.help-card {
+  background: #dbeafe;
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.help-card h4 {
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.help-card p {
+  font-size: 0.85rem;
+  color: #1e40af;
+  margin-bottom: 1rem;
+}
+
+.help-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0077b6;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 1024px) {
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .booking-summary-section {
+    order: -1;
+  }
+  
+  .summary-card {
+    display: flex;
+    max-height: 250px;
+  }
+  
+  .summary-image {
+    width: 300px;
+    height: auto;
+  }
+  
+  .summary-content {
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-hero {
+    padding: 6rem 0 3rem;
+  }
+  
+  .booking-form {
+    padding: 1.5rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .summary-card {
+    flex-direction: column;
+    max-height: none;
+  }
+  
+  .summary-image {
+    width: 100%;
+    height: 200px;
+  }
+}
