@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
 import './Navbar.css'
 
@@ -7,9 +7,18 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
-  const { user, login, logout } = useAuth()
+  const { user, login, logout, manualUser } = useAuth()
+  const displayUser = user || manualUser;
   const location = useLocation()
+  const navigate = useNavigate()
   const userMenuRef = useRef(null)
+
+  const handleLogout = async () => {
+    await logout();
+    setIsUserMenuOpen(false);
+    closeMobileMenu();
+    navigate('/');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,31 +64,28 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMobileMenuOpen ? 'menu-open' : ''}`}>
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>Sidell Beach</Link>
+        <Link to="/home" className="navbar-logo" onClick={closeMobileMenu}>Sidell Beach</Link>
         
         <div className="navbar-links">
-          <Link to="/" className={isActive('/')}>Home</Link>
+          <Link to="/home" className={isActive('/home')}>Home</Link>
           <Link to="/accommodations" className={isActive('/accommodations')}>Rooms</Link>
           <Link to="/activity" className={isActive('/activity')}>Activities</Link>
           <Link to="/location" className={isActive('/location')}>Location</Link>
         </div>
 
         <div className="navbar-actions">
-          {user ? (
+          {displayUser ? (
             <div className="user-menu-container" ref={userMenuRef}>
               <div className="user-profile-trigger" onClick={toggleUserMenu}>
                 <div className="user-avatar-wrapper">
                   <img 
-                    src={user.photoURL} 
-                    alt={user.displayName} 
+                    src={displayUser.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(displayUser.displayName)}&background=0077b6&color=fff`} 
+                    alt={displayUser.displayName} 
                     className="user-avatar" 
-                    onError={(e) => {
-                      e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.displayName)}&background=0077b6&color=fff`
-                    }}
                   />
                   <span className="user-online-status"></span>
                 </div>
-                <span className="user-name-display">{user.displayName?.split(' ')[0]}</span>
+                <span className="user-name-display">{displayUser.displayName?.split(' ')[0]}</span>
                 <i className={`fas fa-chevron-down dropdown-icon ${isUserMenuOpen ? 'rotate' : ''}`}></i>
               </div>
 
@@ -93,7 +99,7 @@ const Navbar = () => {
                   <Link to="/accommodations" className="user-dropdown-item" onClick={() => setIsUserMenuOpen(false)}>
                     <i className="fas fa-calendar-alt"></i> My Bookings
                   </Link>
-                  <button onClick={() => { logout(); setIsUserMenuOpen(false); }} className="user-dropdown-item logout-item">
+                  <button onClick={handleLogout} className="user-dropdown-item logout-item">
                     <i className="fas fa-sign-out-alt"></i> Logout
                   </button>
                 </div>
@@ -119,26 +125,24 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
         <div className="mobile-menu-links">
-          {user && (
+          {displayUser && (
             <div className="mobile-user-info">
               <img 
-                src={user.photoURL} 
-                alt={user.displayName} 
+                src={displayUser.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(displayUser.displayName)}&background=0077b6&color=fff`} 
+                alt={displayUser.displayName} 
                 className="mobile-user-avatar"
-                onError={(e) => {
-                  e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.displayName)}&background=0077b6&color=fff`
-                }}
               />
-              <h3>{user.displayName}</h3>
-              <p>{user.email}</p>
+              <h3>{displayUser.displayName}</h3>
+              <p>{displayUser.email}</p>
             </div>
           )}
-          <Link to="/" onClick={closeMobileMenu}>Home</Link>
+          <Link to="/home" onClick={closeMobileMenu}>Home</Link>
+          <Link to="/profile" onClick={closeMobileMenu}>Profile</Link>
           <Link to="/accommodations" onClick={closeMobileMenu}>Rooms</Link>
           <Link to="/activity" onClick={closeMobileMenu}>Activities</Link>
           <Link to="/location" onClick={closeMobileMenu}>Location</Link>
-          {user ? (
-            <button onClick={() => { logout(); closeMobileMenu(); }} className="mobile-login-btn logout">
+          {displayUser ? (
+            <button onClick={handleLogout} className="mobile-login-btn logout">
               <i className="fas fa-sign-out-alt"></i> Logout
             </button>
           ) : (

@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+.mr-container {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #fcfdfe;
+    min-height: 100vh;
+    max-width: 480px;
+    margin: 0 auto;
+    color: #0f172a;
+    padding-bottom: 40px;
+}
+
+/* Animations */
+@keyframes mrFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes mrSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.animate-fade-in { animation: mrFadeIn 0.3s ease; }
+.animate-slide-up { animation: mrSlideUp 0.4s ease backwards; }
+
+/* Header */
+.mr-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.mr-back-btn {
+    width: 40px;
+    height: 40px;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #1e293b;
+    cursor: pointer;
+}
+
+.mr-header h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* Filters */
+.mr-filter-scroll {
+    overflow-x: auto;
+    padding: 100px 24px 16px;
+    scrollbar-width: none;
+}
+.mr-filter-scroll::-webkit-scrollbar { display: none; }
+
+.mr-filters {
+    display: flex;
+    gap: 12px;
+}
+
+.mr-filter-btn {
+    padding: 10px 20px;
+    background: #f1f5f9;
+    color: #64748b;
+    border: none;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.mr-filter-btn.active {
+    background: #2563eb;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* Cards List */
+.mr-list {
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mr-card {
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+.mr-card-img {
+    height: 180px;
+    position: relative;
+}
+
+.mr-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mr-badge-popular {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #ef4444;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.mr-card-body {
+    padding: 20px;
+}
+
+.mr-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.mr-subtitle {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.mr-card-header h3 {
+    margin: 4px 0 0 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.mr-price-tag {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.mr-price-tag .amount {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #2563eb;
+}
+
+.mr-price-tag .unit {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.mr-capacity {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #475569;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.mr-capacity i {
+    color: #2563eb;
+}
+
+.mr-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.mr-feature-pill {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.mr-view-btn {
+    width: 100%;
+    padding: 14px;
+    background: #eff6ff;
+    color: #2563eb;
+    border: none;
+    border-radius: 16px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+/* Modal */
+.mr-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4);
+    z-index: 100;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.mr-modal-content {
+    background: #fff;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 32px 32px 0 0;
+    overflow: hidden;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.mr-modal-img {
+    height: 160px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.mr-modal-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mr-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    color: #1e293b;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.mr-modal-body {
+    padding: 16px 20px 20px;
+    overflow-y: visible;
+}
+
+.mr-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.mr-modal-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.mr-modal-price {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #2563eb;
+}
+
+.mr-modal-desc {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.mr-modal-body h4 {
+    margin: 0 0 8px 0;
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.mr-modal-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.mr-modal-features li {
+    font-size: 0.85rem;
+    color: #475569;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mr-modal-features i {
+    color: #10b981;
+}
+
+.mr-book-btn {
+    width: 100%;
+    padding: 14px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.25);
+}

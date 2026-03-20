@@ -16,8 +16,21 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthChange((user) => {
-      setUser(user);
+    // Check local storage for manual user first
+    const savedUser = localStorage.getItem('sidell_user');
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+      setLoading(false);
+    }
+
+    const unsubscribe = onAuthChange((firebaseUser) => {
+      // If there's no manual user, or the firebase user is coming from Google Login
+      if (firebaseUser) {
+        setUser(firebaseUser);
+        localStorage.removeItem('sidell_user'); // Clear manual if firebase is active
+      } else if (!localStorage.getItem('sidell_user')) {
+        setUser(null);
+      }
       setLoading(false);
     });
 
@@ -32,8 +45,19 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const setManualUser = (user) => {
+    if (user) {
+        localStorage.setItem('sidell_user', JSON.stringify(user));
+    } else {
+        localStorage.removeItem('sidell_user');
+    }
+    setUser(user);
+  };
+
   const logout = async () => {
     try {
+      localStorage.removeItem('sidell_user');
+      setUser(null);
       await logOut();
     } catch (error) {
       console.error('Error signing out:', error);
@@ -42,6 +66,7 @@ export const AuthProvider = ({ children }) => {
 
   const value = {
     user,
+    setManualUser,
     loading,
     login,
     logout,

@@ -74,7 +74,7 @@ const Home = () => {
           <img src={image1} alt="Sidell Beach Resort" />
         </div>
         <div className="hero-overlay"></div>
-        
+
         <div className="hero-content">
           <h1 className="hero-title">Your Private Tropical Sanctuary</h1>
           <p className="hero-subtitle">
@@ -97,8 +97,8 @@ const Home = () => {
             <div className="welcome-text">
               <h2>Welcome to Sidell Beach</h2>
               <p>
-                Nestled between the palms and the Pacific, we offer a retreat from the noise. 
-                Our A-frame cottages and sprawling greens are designed for those who find luxury 
+                Nestled between the palms and the Pacific, we offer a retreat from the noise.
+                Our A-frame cottages and sprawling greens are designed for those who find luxury
                 in simplicity.
               </p>
               <div className="welcome-features">
@@ -116,7 +116,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="welcome-image">
               <img src={image4} alt="Sidell Beach View" />
               <div className="welcome-image-badge">
@@ -213,7 +213,7 @@ const Home = () => {
             <div className="footer-brand">
               <h3>Sidell Beach Resort</h3>
               <p>
-                Your private tropical sanctuary. Experience the raw beauty of the coast 
+                Your private tropical sanctuary. Experience the raw beauty of the coast
                 with simple living and extraordinary views.
               </p>
             </div>
@@ -261,6 +261,10 @@ const Home = () => {
         </div>
       </footer>
     </div>
+  )
+}
+
+export default Home
   )
 }
 
